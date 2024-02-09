@@ -1,9 +1,9 @@
 class ShortenController < ApplicationController
   def create
-    long_url = params[:long_url]
+    original_url = params[:long_url]
     short_url = generate_short_url
-    ShortUrl.create(long_url: long_url, short_code: short_url)
-    render json: { short_url: short_url }
+    ShortUrl.create(original_url: original_url, short_code: short_url)
+    render json: { short_url: request.host_with_port + "/" + short_url }
   end
 
   private

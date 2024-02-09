@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'get_full_url/create'
   get 'shorten/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,5 +11,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   post '/api/shorten', to: 'shorten#create'
+  get '/:id', to: 'get_full_url#create'
 
 end
